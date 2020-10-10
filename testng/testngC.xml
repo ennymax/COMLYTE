@@ -1,5 +1,5 @@
 <suite name="Suite">
-    <test name = "Product Management" parallel = "methods" thread-count = "3" group-by-instances="false" >
+    <test name = "Product Management">
         <classes>
             <class name="com.Module.ProductManagement.ADD_PRODUCT"/>
             <class name="com.Module.ProductManagement.PRODUCT_CATEGORY"/>
@@ -9,7 +9,7 @@
         </classes>
     </test>
 
-    <test name = "Settings" parallel = "methods" thread-count = "3" group-by-instances="false" >
+    <test name = "Setting Up WebShop">
         <classes>
             <class name="com.Module.SettingUpWorkShop.CAROUSELBANNER"/>
             <class name="com.Module.SettingUpWorkShop.CREATEPRODUCT"/>
@@ -17,8 +17,6 @@
             <class name="com.Module.SettingUpWorkShop.SUSPEND_UNSUSPEND_TAX"/>
             <class name="com.Module.SettingUpWorkShop.THEME_AND_CONFIG"/>
             <class name="com.Module.SettingUpWorkShop.UPDATE_TAX"/>
-            <class name="com.Module.SettingUpWorkShop.WORKSHOP_LANDING_page"/>
-            <class name="com.Module.SettingUpWorkShop.BUY_NOW"/>
         </classes>
     </test>
 </suite>

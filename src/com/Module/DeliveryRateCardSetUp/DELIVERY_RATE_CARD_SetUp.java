@@ -7,6 +7,7 @@ import com.utility.ScreenShot;
 import com.utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -24,22 +25,35 @@ public class DELIVERY_RATE_CARD_SetUp extends TestBase {
         WebDriver driver = new FirefoxDriver();
         driver.get("https://www.cicod.com/login");
 
+        driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
         ScreenShot screenshot = new ScreenShot(driver);
         Login login = new Login(driver);
 
-        login.LoginTestAccount();
+        login.LoginUpgrade();
         test.log(Status.PASS, "Login Was Successful");
 
-
         //COM
-        driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
+        Thread.sleep(2000);
         driver.findElement(By.xpath(Utility.fetchLocator("com_XPATH"))).click();
         test.log(Status.PASS, "COM button fully functional");
 
-        driver.findElement(By.xpath(Utility.fetchLocator("DeliveryRatebtn_XPATH"))).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(Utility.fetchLocator("Settings_XPATH"))).click();
+
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(Utility.fetchLocator("SystemSettings_XPATH"))).click();
+
+        Thread.sleep(2000);
+        WebElement ti11 = driver.findElement(By.xpath(Utility.fetchLocator("DeliveryRatebtn_XPATH")));
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].scrollIntoView();", ti11);
+        ti11.click();
+
+        Thread.sleep(1700);
         driver.findElement(By.xpath(Utility.fetchLocator("DelAdd_XPATH"))).click();
 
         Thread.sleep(1000);
+        screenshot.ScreenShot();
         WebElement ele111 = driver.findElement(By.xpath(Utility.fetchLocator("marchantLocation_XPATH")));
         Select sel11 = new Select(ele111);
         sel11.selectByIndex(1);
@@ -63,8 +77,17 @@ public class DELIVERY_RATE_CARD_SetUp extends TestBase {
         driver.findElement(By.xpath(Utility.fetchLocator("PercentDeliveryRate_XPATH"))).sendKeys(Utility.fetchLocator("PercentageDeliveryCharge_TEXT"));
         driver.findElement(By.xpath(Utility.fetchLocator("FreeDeliveryPrice_XPATH"))).sendKeys(Utility.fetchLocator("FreeeDeliveryPrice_TEXT"));
 
-        Thread.sleep(900);
         driver.findElement(By.xpath(Utility.fetchLocator("DeliverySavebtn_XPATH"))).click();
+
+        Thread.sleep(2000);
+        screenshot.ScreenShotFullPage();
+        WebElement msg11f = driver.findElement(By.xpath(Utility.fetchLocator("mcjl_PATH")));
+        String text11f = msg11f.getText();
+        if (msg11f.isEnabled() && text11f.contains("Delivery Rate Card exists already")) {
+            test.log(Status.PASS, "Delivery Rate Card was setup");
+        } else {
+            test.log(Status.FAIL, "Delivery Rate Card wasn't setUp");
+        }
 
         System.out.println("********************DELIVERY RATE CARD SETUP TEST IS COMPLETED********************");
         driver.quit();

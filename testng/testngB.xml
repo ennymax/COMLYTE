@@ -1,18 +1,18 @@
 <suite name="Suite">
-    <test name = "Delivery Rate SetUp" parallel = "methods" thread-count = "3" group-by-instances="false" >
+    <test name = "Delivery Rate SetUp">
         <classes>
             <class name="com.Module.DeliveryRateCardSetUp.DELIVERY_RATE_CARD_SetUp"/>
         </classes>
     </test>
 
-    <test name = "Order History" parallel = "methods" thread-count = "3" group-by-instances="false" >
+    <test name = "Order History">
         <classes>
             <class name="com.Module.OrderHistory.Downloadorderhistory"/>
             <class name="com.Module.OrderHistory.VIEW_ORDER_HISTORY"/>
         </classes>
     </test>
 
-    <test name = "Create Order" parallel = "methods" thread-count = "3" group-by-instances="false" >
+    <test name = "Create Order">
         <classes>
             <class name="com.Module.CreateOrder.CREATECUSTOMER"/>
             <class name="com.Module.CreateOrder.CREATE_ORDER_FROM_EXISTING_CUSTOMER"/>
@@ -22,7 +22,7 @@
         </classes>
     </test>
 
-    <test name = "DashBoard" parallel = "methods" thread-count = "3" group-by-instances="false" >
+    <test name = "DashBoard">
         <classes>
             <class name="com.Module.DashBoard.View_DashBoard_By_Date"/>
             <class name="com.Module.DashBoard.OrderFufilment"/>

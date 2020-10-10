@@ -1,5 +1,5 @@
 <suite name="Suite">
-    <test name = "Upgrade Subscription" parallel = "methods" thread-count = "3" group-by-instances="false" >
+    <test name = "Upgrade Subscription">
         <classes>
             <class name="com.Module.UpgradeSuscription.Upgrade_Suscription_Of_Active_Account"/>
             <class name="com.Module.UpgradeSuscription.ViewPaymentHistory"/>
@@ -10,13 +10,13 @@
         </classes>
     </test>
 
-    <test name = "UCG" parallel = "methods" thread-count = "3" group-by-instances="false" >
+    <test name = "UCG" >
         <classes>
             <class name="com.Module.UCG.VIEW_TRANSACTION_DETAILS"/>
         </classes>
     </test>
 
-    <test name = "Administration" parallel = "methods" thread-count = "3" group-by-instances="false" >
+    <test name = "Administration">
         <classes>
             <class name="com.Module.Administration.UPDATE_ROLE"/>
             <class name="com.Module.Administration.SUSPEND_UNSUSPEND_ROLE"/>
@@ -27,7 +27,7 @@
         </classes>
     </test>
 
-    <test name = "Customer Management" parallel = "methods" thread-count = "3" group-by-instances="false" >
+    <test name = "Customer Management">
         <classes>
             <class name="com.Module.CustomerManagment.CreateCustomer"/>
             <class name="com.Module.CustomerManagment.DownloadCustomerDetails"/>
