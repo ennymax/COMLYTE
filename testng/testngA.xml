@@ -1,0 +1,37 @@
+<suite name="Suite">
+    <test name = "Upgrade Subscription" parallel = "methods" thread-count = "3" group-by-instances="false" >
+        <classes>
+            <class name="com.Module.UpgradeSuscription.Upgrade_Suscription_Of_Active_Account"/>
+            <class name="com.Module.UpgradeSuscription.ViewPaymentHistory"/>
+            <class name="com.Module.UpgradeSuscription.VIEW_SUSCRIPTION"/>
+            <class name="com.Module.UpgradeSuscription.UpgradeSuscriptionOnFreeTrial"/>
+            <class name="com.Module.UpgradeSuscription.FailedSubscriptionRenewal"/>
+            <class name="com.Module.UpgradeSuscription.Upgrade_Suscription_After_Expiration"/>
+        </classes>
+    </test>
+
+    <test name = "UCG" parallel = "methods" thread-count = "3" group-by-instances="false" >
+        <classes>
+            <class name="com.Module.UCG.VIEW_TRANSACTION_DETAILS"/>
+        </classes>
+    </test>
+
+    <test name = "Administration" parallel = "methods" thread-count = "3" group-by-instances="false" >
+        <classes>
+            <class name="com.Module.Administration.UPDATE_ROLE"/>
+            <class name="com.Module.Administration.SUSPEND_UNSUSPEND_ROLE"/>
+            <class name="com.Module.Administration.ADD_ROLE"/>
+            <class name="com.Module.Administration.AddUser"/>
+            <class name="com.Module.Administration.UpdateUser"/>
+            <class name="com.Module.Administration.DOWNLOAD_User"/>
+        </classes>
+    </test>
+
+    <test name = "Customer Management" parallel = "methods" thread-count = "3" group-by-instances="false" >
+        <classes>
+            <class name="com.Module.CustomerManagment.CreateCustomer"/>
+            <class name="com.Module.CustomerManagment.DownloadCustomerDetails"/>
+            <class name="com.Module.CustomerManagment.Suspend_Unsuspend_Customer"/>
+        </classes>
+    </test>
+</suite>
